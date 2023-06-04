@@ -18,7 +18,9 @@ fn suggest<'a>(list: &Vec<Book>, database: &'a Vec<Vec<Book>>) -> hash_set::Hash
                 }
             }
         }
-        result.extend(entry.iter());
+        if intersect_counter >= min_threshold {
+            result.extend(entry.iter());
+        }
     }
 
     //we don't want any of the original list to be re-recommended either
